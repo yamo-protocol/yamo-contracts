@@ -3,24 +3,35 @@
   "version": "1.0.0",
   "description": "YAMO Protocol v0.4 - Smart contracts (YAMORegistryV2)",
   "main": "index.js",
+  "files": [
+    "contracts/",
+    "artifacts/contracts/**/*.json",
+    "!artifacts/contracts/**/*.dbg.json",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "test": "hardhat test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "hardhat compile",
-    "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
-    "deploy:sepolia": "hardhat run scripts/deploy.ts --network sepolia"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "yamo",
     "blockchain",
-    "ethereum",
     "smart-contracts",
-    "solidity",
-    "uups",
-    "upgradeable"
+    "ethereum"
   ],
   "author": "YAMO Protocol",
   "license": "MIT",
   "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yamo-protocol/yamo-contracts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yamo-protocol/yamo-contracts/issues"
+  },
+  "homepage": "https://github.com/yamo-protocol/yamo-contracts#readme",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
     "@openzeppelin/contracts": "^5.4.0",
@@ -31,13 +42,5 @@
   },
   "dependencies": {
     "dotenv": "^17.2.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yamo-protocol/yamo-contracts.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yamo-protocol/yamo-contracts/issues"
-  },
-  "homepage": "https://github.com/yamo-protocol/yamo-contracts#readme"
+  }
 }
