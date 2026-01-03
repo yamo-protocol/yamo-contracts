@@ -11,7 +11,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "hardhat test",
     "build": "hardhat compile",
     "prepublishOnly": "npm run build"
   },
