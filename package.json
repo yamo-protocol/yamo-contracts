@@ -1,6 +1,6 @@
 {
   "name": "@yamo/contracts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "YAMO Protocol v0.4 - Smart contracts (YAMORegistryV2)",
   "main": "index.js",
   "files": [
