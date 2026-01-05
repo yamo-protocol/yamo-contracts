@@ -36,6 +36,7 @@ export interface YAMORegistryInterface extends Interface {
       | "grantRole"
       | "hasRole"
       | "initialize"
+      | "latestBlockHash"
       | "proxiableUUID"
       | "renounceRole"
       | "revokeRole"
@@ -88,6 +89,10 @@ export interface YAMORegistryInterface extends Interface {
   encodeFunctionData(
     functionFragment: "initialize",
     values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "latestBlockHash",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "proxiableUUID",
@@ -143,6 +148,10 @@ export interface YAMORegistryInterface extends Interface {
   decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "latestBlockHash",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "proxiableUUID",
     data: BytesLike
@@ -366,6 +375,8 @@ export interface YAMORegistry extends BaseContract {
     "nonpayable"
   >;
 
+  latestBlockHash: TypedContractMethod<[], [string], "view">;
+
   proxiableUUID: TypedContractMethod<[], [string], "view">;
 
   renounceRole: TypedContractMethod<
@@ -466,6 +477,9 @@ export interface YAMORegistry extends BaseContract {
   getFunction(
     nameOrSignature: "initialize"
   ): TypedContractMethod<[defaultAdmin: AddressLike], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "latestBlockHash"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "proxiableUUID"
   ): TypedContractMethod<[], [string], "view">;
