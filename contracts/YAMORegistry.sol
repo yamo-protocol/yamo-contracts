@@ -25,9 +25,12 @@ contract YAMORegistry is Initializable, AccessControlUpgradeable, UUPSUpgradeabl
 
     // Mapping from blockId to YAMOBlock
     mapping(string => YAMOBlock) public blocks;
-    
+
     // Mapping to check if a blockId has been used
     mapping(string => bool) public blockExists;
+
+    // Latest submitted block's contentHash for chain continuation
+    bytes32 public latestBlockHash;
 
     event YAMOBlockSubmitted(string indexed blockId, string previousBlock, address indexed agent, bytes32 contentHash);
 
@@ -73,6 +76,9 @@ contract YAMORegistry is Initializable, AccessControlUpgradeable, UUPSUpgradeabl
         });
 
         blockExists[blockId] = true;
+
+        // Update latest block hash for chain continuation
+        latestBlockHash = contentHash;
 
         emit YAMOBlockSubmitted(blockId, previousBlock, msg.sender, contentHash);
     }

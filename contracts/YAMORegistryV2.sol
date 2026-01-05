@@ -11,6 +11,9 @@ contract YAMORegistryV2 is YAMORegistry {
     // New storage variable must be appended to avoid collisions
     mapping(string => string) public blockCIDs;
 
+    // Override latestBlockHash to include V2 updates
+    bytes32 public latestBlockHash;
+
     event YAMOBlockSubmittedV2(string indexed blockId, bytes32 contentHash, string ipfsCID);
 
     /**
@@ -42,6 +45,9 @@ contract YAMORegistryV2 is YAMORegistry {
 
         blockExists[blockId] = true;
         blockCIDs[blockId] = ipfsCID;
+
+        // Update latest block hash for chain continuation
+        latestBlockHash = contentHash;
 
         emit YAMOBlockSubmitted(blockId, previousBlock, msg.sender, contentHash);
         emit YAMOBlockSubmittedV2(blockId, contentHash, ipfsCID);
