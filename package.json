@@ -2,18 +2,9 @@
   "name": "@yamo/contracts",
   "version": "1.2.6",
   "description": "YAMO Protocol v0.4 - Smart contracts (YAMORegistryV2)",
-  "main": "index.js",
-  "files": [
-    "contracts/",
-    "artifacts/contracts/**/*.json",
-    "!artifacts/contracts/**/*.dbg.json",
-    "README.md",
-    "LICENSE"
-  ],
   "scripts": {
     "test": "hardhat test",
-    "build": "hardhat compile",
-    "prepublishOnly": "npm run build"
+    "build": "hardhat compile"
   },
   "keywords": [
     "yamo",
